@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'resultstyle.css' %}">
+    <title>SportPix</title>
+</head>
+<body>
+    <div class="navbar">
+        <span class="navbar-left">SportPix</span>
+        <a href="/">Upload</a>
+        <a href="/search/">Search</a>
+    </div>
+    <div class="container">
+        <h1>Image Search Results</h1>
+        
+        <!-- Afficher le nombre d'images -->
+        {% if image_paths %}
+            <p class="number-of-images">Number of Images: {{ image_paths|length }}</p>
+        {% endif %}
+        <!-- Afficher les images -->
+        <div class="image-gallery">
+            {% if image_paths %}
+                {% for image_path in image_paths %}
+                    <img src="{{ image_path }}" alt="Image {{ forloop.counter }}" />
+                {% endfor %}
+            {% else %}
+                <p class="nofound">No Images Found.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div>
+            <p >Copyright <strong>SportPix</strong> 2024 &copy; All Rights Reserved</p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

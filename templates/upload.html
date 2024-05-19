@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>SportPix</title>
+</head>
+<body>
+    <div class="navbar">
+        <span class="navbar-left">SportPix</span>
+        <a href="#" class="active">Upload</a>
+        <a href="search/">Search</a>
+    </div>
+    <div class="container">
+        <h2>Upload Images</h2>
+        <form action="/upload/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="centrele"><input type="file" name="image" accept=".jpg, .jpeg" multiple></div>
+            <input type="submit" value="Télécharger">
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Classify Images</h2>
+        <form action="/classify/" method="post">
+            {% csrf_token %}
+            <p style="text-align: center;">Would you like to classify your images? <input type="submit" value="Classify" class="btn"></p>
+            
+        </form>
+    </div>
+    
+
+    <footer class="footer">
+        <div>
+            <p >Copyright <strong>SportPix</strong> 2024 &copy; All Rights Reserved</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

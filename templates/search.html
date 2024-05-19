@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesearch.css' %}">
+    <title>SportPix</title>
+</head>
+<body>
+    <div class="navbar">
+        <span class="navbar-left">SportPix</span>
+        <a href="/" >Upload</a>
+        <a href="#" class="active">Search</a>
+    </div>
+
+    <div class="container">
+        <h2>Image Search</h2>
+        <form action="/recherche/" method="post" id="searchForm">
+            {% csrf_token %}
+            <input type="text" name="dossardNumber" id="dossardNumber" placeholder="Dossard Number">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+
+
+    <footer class="footer">
+        <div>
+            <p >Copyright <strong>SportPix</strong> 2024 &copy; All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
